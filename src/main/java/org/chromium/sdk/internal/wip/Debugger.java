@@ -18,13 +18,12 @@ public class Debugger implements IMyoPose{
     private DebugListener debugListener;
     private IMyoPose mp;
 
-    public Debugger(){
+    public Debugger(String host,int port){
 
        try
        {
            System.err.println("started");
-           Debugger d = new Debugger();
-           d.connect("localhost", 9222);
+           this.connect(host, port);
            System.err.println("finished");
        }catch(Exception e){
            e.printStackTrace();
@@ -32,7 +31,7 @@ public class Debugger implements IMyoPose{
 
     }
 
-    public void connect(String host, int port) throws Exception {
+    private void connect(String host, int port) throws Exception {
         browser = WipBrowserFactory.INSTANCE.createBrowser(
                 new InetSocketAddress(host, port), new LoggerFactoryImpl());
         WipBackendFactory backendFactory = new WipBackendFactory(); // Same class name in each backend .jar 
@@ -50,7 +49,7 @@ public class Debugger implements IMyoPose{
 
         PermanentRemoteValueMapping prm = ((WipTabImpl) javascriptVm).createPermanentValueMapping(valueMappingGroup);
 
-        IMyoPose mp = new MyoPoseImpl(prm);
+        mp = new MyoPoseImpl(prm);
 
 
        debugListener.getSemaphore().tryAcquire(999, TimeUnit.DAYS);
