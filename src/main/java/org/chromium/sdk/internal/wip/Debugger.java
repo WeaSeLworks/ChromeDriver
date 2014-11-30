@@ -52,9 +52,6 @@ public class Debugger implements IMyoPose{
         mp = new MyoPoseImpl(prm);
 
 
-       //debugListener.getSemaphore().tryAcquire(999, TimeUnit.DAYS);
-
-
     }
 
 
@@ -103,7 +100,6 @@ public class Debugger implements IMyoPose{
 
         @Override
         public void navigated(String string) {
-            System.err.println("navigated="+string);
         }
 
         @Override
@@ -127,7 +123,6 @@ public class Debugger implements IMyoPose{
 
         @Override
         public void scriptLoaded(Script script) {
-            System.err.println("------- script: "+script.getName());
         }
 
         @Override
@@ -197,12 +192,10 @@ public class Debugger implements IMyoPose{
 
         @Override
         public void addContent(CharSequence text) {
-            //    System.err.println(""+text);
         }
 
         @Override
         public void addSeparator() {
-//            System.err.println("   ------ ");
         }
 
     }
