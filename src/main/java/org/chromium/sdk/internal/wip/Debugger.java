@@ -52,10 +52,12 @@ public class Debugger implements IMyoPose{
         mp = new MyoPoseImpl(prm);
 
 
-       debugListener.getSemaphore().tryAcquire(999, TimeUnit.DAYS);
+       //debugListener.getSemaphore().tryAcquire(999, TimeUnit.DAYS);
 
 
     }
+
+
 
     @Override
     public void onFist() {

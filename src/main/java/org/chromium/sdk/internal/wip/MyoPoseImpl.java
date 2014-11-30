@@ -20,7 +20,7 @@ public class MyoPoseImpl implements IMyoPose {
     @Override
     public void onFist() {
 
-        prm.getEvaluateContext().evaluateAsync("alert('fist');",new HashMap<String, String>(),null,null);
+        prm.getEvaluateContext().evaluateAsync("onPose('fist');",new HashMap<String, String>(),null,null);
 
     }
 
